@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Regex Matcher</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Regex Matcher</h1>
+        <p>Matches words containing <strong>"ra"</strong> and <strong>"pp"</strong></p>
+
+        <form method="POST">
+            <textarea name="input_text" placeholder="Enter your text here...">{{ text }}</textarea>
+            <button type="submit">Find Matches</button>
+        </form>
+
+        {% if matches %}
+        <div class="results">
+            <h2>Results</h2>
+            <p><strong>Expression:</strong> {{ expr }}</p>
+            <ul>
+                {% for match in matches %}
+                <li>{{ match }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
